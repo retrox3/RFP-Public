@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Retros Downloads</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/RFP_favicon.ico">
+  <style>
+    body {
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+      animation: fadeInDown 1s;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      margin: 0;
+      background: linear-gradient(90deg, #ffb347, #ffcc33, #ffb347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 3s linear infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .downloads-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .download-card {
+      background: rgba(34, 34, 34, 0.95);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+      width: 320px;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: cardFadeIn 0.8s;
+    }
+    .download-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 16px 40px 0 rgba(255, 204, 51, 0.25);
+    }
+    @keyframes cardFadeIn {
+      from { opacity: 0; transform: scale(0.95);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    .download-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #ffcc33;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-10px);}
+    }
+    .download-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .download-desc {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .download-btn {
+      background: linear-gradient(90deg, #ffb347, #ffcc33);
+      color: #232526;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(255, 204, 51, 0.15);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      outline: none;
+    }
+    .download-btn:hover {
+      background: linear-gradient(90deg, #ffcc33, #ffb347);
+      color: #111;
+      transform: scale(1.05);
+    }
+    @media (max-width: 900px) {
+      .downloads-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>Retrofilepacks Downloads</h1>
+    <p style="color:#ffcc33; margin-top:0.5rem;">Find and download your favorite retro packs below!</p>
+  </header>
+  <section class="downloads-container">
+    <div class="download-card">
+      <div class="download-icon"><i class="fas fa-archive"></i></div>
+      <div class="download-title">Mods For Thumbnails</div>
+      <div class="download-desc">A Couple Mods For Making Thumbnails. Importing It To Prism Launcher Will Not Work Unless You Find a way to.</div>
+      <a href="https://drive.google.com/file/d/1uVOb4WUQ-E9_3XK6evHpQsh9qcb9KZKr/view?usp=sharing" class="download-btn" download>Download</a>
+    </div>
+    <div class="download-card">
+      <div class="download-icon"><i class="fas fa-gamepad"></i></div>
+      <div class="download-title">Minecraft Editing Pack</div>
+      <div class="download-desc">A Pack Filled With A Bunch Of Minecraft SFX, Images, etc. Credit To Brazey For Most Of The Pack.</div>
+      <a href="https://drive.google.com/file/d/1JlAbsuz2-4f0v7PCaKKql7f9g5oSvY1M/view?usp=sharing" class="download-btn" download>Download</a>
+    </div>
+    <div class="download-card">
+      <div class="download-icon"><i class="fas fa-compact-disc"></i></div>
+      <div class="download-title">Texture Pack I Use</div>
+      <div class="download-desc">Its a texture pack i use in all my videos.</div>
+      <a href="https://drive.google.com/file/d/11Eg4MjvPmVt1hLMEFCTwMRgRlt3XPEhc/view?usp=sharing" class="download-btn" download>Download</a>
+    </div>
+    <!-- Add more download cards as needed -->
+  </section>
+</body>
+</html>

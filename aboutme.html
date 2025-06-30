@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>About Me - Retrofilepacks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/RFP_favicon.ico">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      animation: bgMove 10s ease-in-out infinite alternate;
+    }
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    .container {
+      background: rgba(34, 34, 34, 0.85);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(6px);
+      padding: 40px 32px;
+      margin-top: 60px;
+      max-width: 700px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #00c6ff;
+      box-shadow: 0 4px 24px rgba(0,198,255,0.2);
+      margin-bottom: 24px;
+      background: #222;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+      color: #00c6ff;
+      text-shadow: 0 2px 8px rgba(0,198,255,0.2);
+    }
+    .about-text {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      color: #e0e0e0;
+    }
+    .gallery {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .gallery img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 2px solid #00c6ff;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 12px rgba(0,198,255,0.12);
+      background: #222;
+    }
+    .gallery img:hover {
+      transform: scale(1.08) rotate(-2deg);
+      box-shadow: 0 4px 24px rgba(0,198,255,0.25);
+    }
+    .contact-btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 24px;
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      color: #fff;
+      border-radius: 24px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px rgba(0,198,255,0.15);
+      transition: background 0.2s, box-shadow 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .contact-btn:hover {
+      background: linear-gradient(90deg, #0072ff 0%, #00c6ff 100%);
+      box-shadow: 0 4px 16px rgba(0,198,255,0.25);
+    }
+    /* Modal Styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.55);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal {
+      background: #232526;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      padding: 32px 24px 24px 24px;
+      min-width: 280px;
+      max-width: 90vw;
+      color: #f5f5f5;
+      position: relative;
+      text-align: left;
+      animation: modalIn 0.2s;
+    }
+    @keyframes modalIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: #00c6ff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .modal-close:hover {
+      color: #fff;
+    }
+    .contact-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .contact-list li {
+      margin-bottom: 16px;
+      font-size: 1.08rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-list a {
+      color: #00c6ff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+      word-break: break-all;
+    }
+    .contact-list a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 24px 8px;
+      }
+      .gallery img {
+        width: 70px;
+        height: 70px;
+      }
+      .profile-img {
+        width: 100px;
+        height: 100px;
+      }
+      .modal {
+        padding: 20px 8px 16px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="images2/newpfp.png" alt="Profile Photo" class="profile-img">
+    <h1>About Me</h1>
+    <div class="about-text">
+      Hello! I'm Retro.<br>
+      I Make Mods, Texture Packs And More, I Also Do web development.<br>
+      This site is my way of sharing My packs, resources, and tutorials.<br>
+      When I'm not coding, you will find me playing hypixel skyblock, or looking at pc parts.
+    </div>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Retro Computer">
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Floppy Disks">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Pixel Art">
+      <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" alt="Vintage Game Console">
+    </div>
+    <button class="contact-btn" id="openContact">Contact Me</button>
+  </div>
+  <!-- Modal -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal">
+      <button class="modal-close" id="closeContact" aria-label="Close">&times;</button>
+      <h2 style="color:#00c6ff; margin-top:0;">Contact Information</h2>
+      <ul class="contact-list">
+        <li><strong>Email:</strong> <a href="mailto:retrofilepacks@currently.com">retrofilepacks@currently.com</a></li>
+        <li><strong>Twitter/X:</strong> <a href="https://x.com/retrox3d" target="_blank">@retrox3d</a></li>
+        <li><strong>Discord:</strong> retrox3</li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/retrox3" target="_blank">github.com/retrox3</a></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    const openBtn = document.getElementById('openContact');
+    const modal = document.getElementById('contactModal');
+    const closeBtn = document.getElementById('closeContact');
+
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    // Close modal when clicking outside the modal box
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
+
+    // Optional: Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        modal.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
